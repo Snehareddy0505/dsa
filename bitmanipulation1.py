@@ -1,22 +1,7 @@
-#n=int(input())
-#i=int(input())
-#checkithbit
-#print(n&(1<<i))
-#print((n>>i)&i)
-#setithbit
-#print(n&~(1<<i))
-#toggleithbith
-#print(n^(1<<i))
-#checkifnumispowerof2
-#if n > 0 and (n & (n - 1)) == 0:
- #   print("power of 2")
-###else:
-  #  print("not power of 2")
-#countthenumofsetbit
-def countsetbit(n):
-    cnt = 0
-    while n:
-        n &= n - 1
-        cnt += 1
-    return cnt
-print(countsetbit(13))  
+n=int(input())
+resultBinaryString="" 
+while(n!=0):
+    rem = n%2 #we will divide the remainder
+    resultBinaryString+=str(rem) # we will convert rem into string and add into result
+    n=n//2 # divide the quotient
+print(resultBinaryString[::-1]) # slicing:to get output in reverse
