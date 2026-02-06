@@ -1,33 +1,19 @@
 class Node:
-    def __init__(self, val):
-        self.prev = None
-        self.data = val
-        self.next = None
-
-def createDLL(arr): 
-    head = None
-    temp = None
+    def __init__(self,val):
+        self.prev=None
+        self.data=val
+        self.next=None
+def createdLL(arr):
+    head=None
     for val in arr:
-        newNode = Node(val)
-        if head is None:
-            head = newNode
-            temp = head
+        if head==None:
+            head=Node(val)
+            temp=head
         else:
-            temp.next = newNode
-            newNode.prev = temp
-            temp = newNode
-    return head  # Return the head of the DLL
-
-def printDLL(head):
-    temp = head
-    while temp:
-        print(temp.data, end=" ")
-        temp = temp.next
-    print()  # For newline
-
-# Test the DLL creation
-arr = [1, 2, 3, 4, 5]
-head = createDLL(arr)
-print("Doubly Linked List (Forward):")
-printDLL(head)
-
+           newNode=Node(val)
+           newNode.prev=temp
+           temp.next=newNode
+           temp=temp.next
+    return head.data
+arr=[1,2,3]
+print(createdLL(arr))
