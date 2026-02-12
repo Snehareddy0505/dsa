@@ -1,0 +1,28 @@
+def rotate_matrix(mat):
+    # Step 1: Transpose the matrix
+    n = len(mat)
+    for i in range(n):
+        for j in range(i + 1, n):
+            mat[i][j], mat[j][i] = mat[j][i], mat[i][j]
+    
+    # Step 2: Reverse each row
+    for row in mat:
+        row.reverse()
+
+# Example usage:
+matrix = [
+    [1, 2, 3],
+    
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print("Original matrix:")
+for row in matrix:
+    print(row)
+
+rotate_matrix(matrix)
+
+print("\nRotated matrix (90° clockwise):")
+for row in matrix:
+    print(row)
