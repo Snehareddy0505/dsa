@@ -1,0 +1,44 @@
+def numEnclaves(grid):
+    n = len(grid)
+    m = len(grid[0])
+    
+    def dfs(r, c):
+        if r < 0 or r >= n or c < 0 or c >= m or grid[r][c] == 0:
+            return
+        
+        grid[r][c] = 0  # mark visited
+        
+        dfs(r-1, c)
+        dfs(r+1, c)
+        dfs(r, c-1)
+        dfs(r, c+1)
+    
+    # Step 1: Remove boundary-connected land
+    for i in range(n):
+        if grid[i][0] == 1:
+            dfs(i, 0)
+        if grid[i][m-1] == 1:
+            dfs(i, m-1)
+    
+    for j in range(m):
+        if grid[0][j] == 1:
+            dfs(0, j)
+        if grid[n-1][j] == 1:
+            dfs(n-1, j)
+    
+    # Step 2: Count remaining land
+    count = 0
+    for i in range(n):
+        for j in range(m):
+            if grid[i][j] == 1:
+                count += 1
+    
+    return count
+grid = [
+    [0,0,0,0],
+    [1,0,1,0],
+    [0,1,1,0],
+    [0,0,0,0]
+]
+
+print(numEnclaves(grid))
