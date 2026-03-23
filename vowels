@@ -1,0 +1,9 @@
+def count1(s):
+    vowels="aeiou"
+    c=0
+    for char in s:
+        if char in vowels:
+            c+=1
+    return c
+s="sushmitha"
+print((count1(s)))
